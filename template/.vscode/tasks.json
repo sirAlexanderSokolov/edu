@@ -1,0 +1,29 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build",
+            "type": "shell",
+            "command": "if [[ ! -n $(find . -name 'build') ]]; then mkdir -v build; fi; if [[ ! -n $(find . -name 'build') ]]; then echo 'can not create directory'; else cd build/;cmake ..; cmake --build . -- -j8; fi;",
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "clear & build & run",
+            "type": "shell",
+            "command": "if [[ ! -n $(find . -name 'build') ]]; then mkdir -v build; fi; if [[ ! -n $(find . -name 'build') ]]; then echo 'can not create directory'; else cd build/; find . -not -name '.gitignore' -delete; cmake ..; cmake --build . -- -j8; chmod +x run.sh; ./run.sh; fi;",
+            "problemMatcher": []
+        },
+        {
+            "label": "clear build",
+            "type": "shell",
+            "command": "if [[ ! -n $(find . -name 'build') ]]; then mkdir -v build; fi; if [[ ! -n $(find . -name 'build') ]]; then echo 'can not create directory'; else cd build/; find . -not -name '.gitignore' -delete; fi;",
+            "problemMatcher": []
+        },
+    ]
+}

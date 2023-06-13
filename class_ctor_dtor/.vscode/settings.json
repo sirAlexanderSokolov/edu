@@ -93,9 +93,6 @@
         "locale": "cpp",
         "__mutex_base": "cpp",
         "queue": "cpp",
-        "*.ipp": "cpp",
-        "charconv": "cpp",
-        "format": "cpp",
-        "span": "cpp"
+        "*.ipp": "cpp"
     }
 }
